@@ -31,14 +31,14 @@ integrations:
       type: dockerRegistryLogin
       region: us-east-1
 
-  notifications:
-    - integrationName: trigger-img-front-end
-      type: webhook
-      payload:
-        - versionName=$BRANCH.$BUILD_NUMBER
-      branches:
-        only:
-          - master
-      on_success: always
-      on_failure: never
-      on_start: never
+  #notifications:
+  #  - integrationName: trigger-img-front-end
+  #    type: webhook
+  #    payload:
+  #      - versionName=$BRANCH.$BUILD_NUMBER
+  #    branches:
+  #      only:
+  #        - master
+  #    on_success: always
+  #    on_failure: never
+  #    on_start: never
