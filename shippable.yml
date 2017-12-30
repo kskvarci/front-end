@@ -19,6 +19,7 @@ build:
   post_ci:
     - cp coverage/cobertura-coverage.xml shippable/codecoverage/
     - cp results/test-results.xml shippable/testresults/
+    - docker push kskvarci/test:image-tag
 
   on_success:
     - ./scripts/build.sh
@@ -26,8 +27,8 @@ build:
 
 integrations:
   hub:
-    - integrationName: shippable-ecr  # must match Subscription Integration in Shippable
-      type: ecr
+    - integrationName: kskDockerHub  # must match Subscription Integration in Shippable
+      type: dockerRegistryLogin
       region: us-east-1
 
   notifications:
