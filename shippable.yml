@@ -14,11 +14,11 @@ build:
   ci:
     - mkdir -p shippable/codecoverage -p shippable/testresults
     - npm install
-    #- npm run-script coverage
+    - npm run-script coverage
 
   post_ci:
-    #- cp coverage/cobertura-coverage.xml shippable/codecoverage/
-    #- cp results/test-results.xml shippable/testresults/
+    - cp coverage/cobertura-coverage.xml shippable/codecoverage/
+    - cp results/test-results.xml shippable/testresults/
     - docker push kskvarciorg/front-end:$BRANCH.$BUILD_NUMBER
 
   on_success:
