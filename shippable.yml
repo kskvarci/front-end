@@ -5,7 +5,7 @@ node_js:
 
 env:
   global:
-    - GROUP=288971733297.dkr.ecr.us-east-1.amazonaws.com # {AWS account ID}.dkr.ecr.us-east-1
+    #- GROUP=288971733297.dkr.ecr.us-east-1.amazonaws.com # {AWS account ID}.dkr.ecr.us-east-1
     - TAG=$GIT_TAG_NAME
     - IMAGE_TAG=$BRANCH.$BUILD_NUMBER
     - REPO=front-end
@@ -19,11 +19,12 @@ build:
   post_ci:
     - cp coverage/cobertura-coverage.xml shippable/codecoverage/
     - cp results/test-results.xml shippable/testresults/
-    - docker push kskvarciorg/front-end
+    - docker build -t kskvarciorg/front-end:$BRANCH.$BUILD_NUMBER .
+    - docker push kskvarci/front-end:$BRANCH.$BUILD_NUMBER
 
   on_success:
-    - ./scripts/build.sh
-    - ./scripts/push.sh
+    #- ./scripts/build.sh
+    #- ./scripts/push.sh
 
 integrations:
   hub:
