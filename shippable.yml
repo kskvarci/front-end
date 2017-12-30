@@ -19,7 +19,7 @@ build:
   post_ci:
     #- cp coverage/cobertura-coverage.xml shippable/codecoverage/
     #- cp results/test-results.xml shippable/testresults/
-    - docker push kskvarci/front-end:$BUILD_NUMBER
+    - docker push kskvarci/front-end:$BRANCH.$BUILD_NUMBER
 
   on_success:
     - ./scripts/build.sh
