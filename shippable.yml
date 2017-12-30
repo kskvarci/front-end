@@ -28,7 +28,7 @@ build:
 
 integrations:
   hub:
-    - integrationName: kskDockerHub  # must match Subscription Integration in Shippable
+    - integrationName: docker-registry  # must match Subscription Integration in Shippable
       type: dockerRegistryLogin
 
   #notifications:
