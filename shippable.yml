@@ -17,8 +17,8 @@ build:
     - npm run-script coverage
 
   post_ci:
-    - cp coverage/cobertura-coverage.xml shippable/codecoverage/
-    - cp results/test-results.xml shippable/testresults/
+    #- cp coverage/cobertura-coverage.xml shippable/codecoverage/
+    #- cp results/test-results.xml shippable/testresults/
     - docker push kskvarci/test:image-tag
 
   on_success:
